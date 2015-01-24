@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+        <SmarterU>
+        <AccountAPI>abc</AccountAPI>
+        <UserAPI>abc</UserAPI>
+        <Method>getGroup</Method>
+        <Parameters><Group><Name><![CDATA[MyGroup]]></Name></Group></Parameters>
+        </SmarterU>

@@ -1,0 +1,6 @@
+rdoc
+.bundle
+bundler_gems
+.DS_Store
+.ruby-version
+Gemfile.lock
