@@ -18,7 +18,7 @@ module Smarteru
     # Hash representation of response data
     def to_hash
       return @hash if @hash
-      @hash = parser.parse(data.to_s.gsub(/\<!\[CDATA\[(.+)\]\]\>/) {$1})
+      @hash = parser.parse(data.to_s.gsub(/\<!\[CDATA\[([^\]]+)\]\]\>/) {$1})
     end
 
     # Return true/false based on the API response status
