@@ -56,6 +56,16 @@ class TestSmarteru < Test::Unit::TestCase
     end
   end
 
+  def test_update_employee_id
+    VCR.use_cassette('update_employee_id') do
+      employee_id = 'powur.com:4242'
+      response = @client.users.update_employee_id('vduplessie@gmail.com', employee_id)
+      assert_true response.success?
+      assert_true response.result.keys.include?(:employee_id)
+      assert_equal response.result[:employee_id], employee_id
+    end
+  end
+
   def test_create_user
     employee_id = 'test.eyecuelab.com:42'
     params = {

@@ -30,6 +30,10 @@ module Smarteru
         client.request('updateUser', params)
       end
 
+      def update_employee_id(id_or_email, new_employee_id)
+        update(id_or_email, employee_i_d: new_employee_id)
+      end
+
       def signin(id_or_email)
         params = { security: normalize_id_param(id_or_email) }
 
