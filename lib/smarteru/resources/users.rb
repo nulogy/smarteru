@@ -70,7 +70,7 @@ module Smarteru
             custom_fields: nil } }
 
         response = client.request('getLearnerReport', params)
-        [ response.result[:learner_report][:learner] ].flatten
+        [ response.result[:learner_report][:learner] ].flatten.compact
       end
 
       def enrolled?(id_or_email, group, course_name)
