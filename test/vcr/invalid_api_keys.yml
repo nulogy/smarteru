@@ -1,0 +1,57 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.smarteru.com/apiv2/
+    body:
+      encoding: US-ASCII
+      string: Package=%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%20%20%20%20%20%20%20%20%3CSmarterU%3E%0A%20%20%20%20%20%20%20%20%3CAccountAPI%3Efoo%3C%2FAccountAPI%3E%0A%20%20%20%20%20%20%20%20%3CUserAPI%3Ebar%3C%2FUserAPI%3E%0A%20%20%20%20%20%20%20%20%3CMethod%3EgetGroup%3C%2FMethod%3E%0A%20%20%20%20%20%20%20%20%3CParameters%3E%3CGroup%3E%3CName%3E%3C!%5BCDATA%5BPowurU%5D%5D%3E%3C%2FName%3E%3C%2FGroup%3E%3C%2FParameters%3E%0A%20%20%20%20%20%20%20%20%3C%2FSmarterU%3E
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '481'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sun, 14 Jun 2015 23:52:33 GMT
+      Content-Type:
+      - text/html;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - private
+      Content-Language:
+      - en-US
+      Set-Cookie:
+      - CFID=5583569; Expires=Mon, 15-Jun-2015 23:52:33 GMT; Path=/; HttpOnly
+      - CFTOKEN=42826612; Expires=Mon, 15-Jun-2015 23:52:33 GMT; Path=/; HttpOnly
+      - SERVERID=SU-APP-2-2; path=/
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAAz1P3QqCMBS+1qcYu6/pXcRcCCV4EUS2Bxh6ktHc4Eyl3j7T
+        rXP3/fIdfnoPhsyAXjtb0HyfUQK2dZ22fUHlo9od6EmkvBkUjoBSpMnv+B38
+        ZEZRKW2g4yzAINb26Vh0XhAd+oCSzbEUrHRkI67PopHHPONslRcY/SFwBe9V
+        D0J6QKJsR8q2dZMdSXmryQs+nigEou2sjF5mrS0xE6sCHavD5s0bdnL2//cL
+        qPlxFyEBAAA=
+    http_version: 
+  recorded_at: Sun, 14 Jun 2015 23:52:33 GMT
+recorded_with: VCR 2.9.3

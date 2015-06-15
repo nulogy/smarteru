@@ -1,45 +1,122 @@
-require 'helper'
+require 'test_helper'
 
 class TestSmarteru < Test::Unit::TestCase
 
   def setup
-    @client = Smarteru::Client.new(ACCESS_CREDENTIALS)
+    @client = Smarteru::Client.new(
+      account_api_key: 'C3FE6BE08120A82DB9C4555A5C0E46AF',
+      user_api_key:    '*623jec3nad4!aic5rlg*$mrg8n4$itd^vy62xut')
+    # replace values w/ actual keys to run/test vcr cassettes
+    # @client = Smarteru::Client.new(
+    #   account_api_key: 'foo',
+    #   user_api_key:    'bar')
   end
 
-  def test_request_get_group
-    stub_request = stub_v2_api_call('getGroup', request_payload('getGroup.xml'))
-    response = @client.request('getGroup', {group: {name: 'MyGroup'}})
-    assert_equal(response.data, expected_body('getGroup.xml'))
-    assert_requested(stub_request)
+  GROUP_PARAMS = { group: { name: 'PowurU' } }
+  def test_invalid_api_keys
+    @client.account_api_key = 'foo'
+    @client.user_api_key = 'bar'
+
+    with_request('invalid_api_keys', 'getGroup', GROUP_PARAMS) do |response|
+      assert_false response.success?
+      assert_not_nil response.error[:error][:error_id]
+      assert_equal response.error[:error][:error_id], 'SU:10'
+    end
   end
 
-  def test_response_result_hash
-    stub_request = stub_v2_api_call('getGroup', request_payload('getGroup.xml'))
-    response = @client.request('getGroup', {group: {name: 'MyGroup'}})
-    assert_equal(response.result, {
-      group: {
-        name: "MyGroup",
-        group_id: nil,
-        created_date: "2015-01-22 23:42:55.553",
-        modified_date: "2015-01-23 01:25:02.013",
-        description: {
-          p: "Group Description ..."
-        },
-        home_group_message: {
-          p: "Welcome to The Group"
-        },
-        notification_emails: nil,
-        user_count: "2",
-        learning_module_count: "2",
-        tags: nil,
-        status: "Active"
-      }
-    })
+  def test_get_group
+    with_request('get_group', 'getGroup', GROUP_PARAMS) do |response|
+      assert_true response.success?
+      assert_not_nil response.result[:group]
+    end
   end
 
-  def test_response_success_method
-    stub_request = stub_v2_api_call('getGroup', request_payload('getGroup.xml'))
-    response = @client.request('getGroup', {group: {name: 'MyGroup'}})
-    assert_equal(true, response.success?)
+  def test_get_user
+    VCR.use_cassette('get_user') do
+      response = @client.users.get('vduplessie@gmail.com')
+      assert_true response.success?
+      assert_not_nil response.result[:user]
+    end
+  end
+
+  def test_get_nonexistant_user
+    VCR.use_cassette('get_nonexistant_user') do
+      response = @client.users.get('noop@eyecuelab.com')
+      assert_nil response
+    end
+  end
+
+  def test_update_user
+    VCR.use_cassette('update_user') do
+      employee_id = 'powur.com:4242'
+      response = @client.users.update('vduplessie@gmail.com', employee_i_d: employee_id)
+      assert_true response.success?
+      assert_true response.result.keys.include?(:employee_id)
+      assert_equal response.result[:employee_id], employee_id
+    end
+  end
+
+  def test_create_user
+    employee_id = 'test.eyecuelab.com:42'
+    params = {
+      email:        'foo@eyecuelab.com',
+      employee_i_d: employee_id,
+      given_name:   'Test',
+      surname:      'User',
+      password:     'password',
+      group:        'PowurU' }
+
+    VCR.use_cassette('create_user') do
+      response = @client.users.create(params)
+      assert_true response.success?
+      assert_true response.result.keys.include?(:employee_id)
+      assert_equal response.result[:employee_id], employee_id
+    end
+  end
+
+  def test_signin_user
+    VCR.use_cassette('signin_user') do
+      response = @client.users.signin('5258029611')
+      assert_true response.success?
+      assert_true response.result.keys.include?(:redirect_path)
+    end
+  end
+
+  def test_enroll_user
+    VCR.use_cassette('enroll_user') do
+      response = @client.users.enroll('5258029611', 'PowurU', '8319')
+      assert_true response.success?
+      assert_true response.result.keys.include?(:enrollments)
+    end
+  end
+
+  def test_learner_report
+    VCR.use_cassette('learner_report') do
+      response = @client.users.learner_report('5258029611', 'PowurU')
+      assert_kind_of Array, response
+    end
+  end
+
+  def test_enrolled_true
+    VCR.use_cassette('enrolled_true') do
+      response = @client.users.enrolled?('foo@eyecuelab.com', 'PowurU', 'Fast Impact Training (FIT)')
+      assert_true response
+    end
+  end
+
+  def test_enrolled_false
+    VCR.use_cassette('enrolled_false') do
+      response = @client.users.enrolled?('foo@eyecuelab.com', 'PowurU', 'Cert Pro')
+      assert_false response
+    end
+  end
+
+  private
+
+  def with_request(cassette, method, params)
+    VCR.use_cassette(cassette) do
+      response = @client.request(method, params)
+      yield(response) if block_given?
+    end
   end
 end

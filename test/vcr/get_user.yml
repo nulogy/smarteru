@@ -1,0 +1,66 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.smarteru.com/apiv2/
+    body:
+      encoding: US-ASCII
+      string: Package=%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%20%20%20%20%20%20%20%20%3CSmarterU%3E%0A%20%20%20%20%20%20%20%20%3CAccountAPI%3EC3FE6BE08120A82DB9C4555A5C0E46AF%3C%2FAccountAPI%3E%0A%20%20%20%20%20%20%20%20%3CUserAPI%3E*623jec3nad4!aic5rlg*%24mrg8n4%24itd%5Evy62xut%3C%2FUserAPI%3E%0A%20%20%20%20%20%20%20%20%3CMethod%3EgetUser%3C%2FMethod%3E%0A%20%20%20%20%20%20%20%20%3CParameters%3E%3CUser%3E%3CEmail%3E%3C!%5BCDATA%5Bvduplessie%40gmail.com%5D%5D%3E%3C%2FEmail%3E%3C%2FUser%3E%3C%2FParameters%3E%0A%20%20%20%20%20%20%20%20%3C%2FSmarterU%3E
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '568'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 15 Jun 2015 00:27:19 GMT
+      Content-Type:
+      - text/html;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - private
+      Content-Language:
+      - en-US
+      Set-Cookie:
+      - CFID=5585019; Expires=Tue, 16-Jun-2015 00:27:19 GMT; Path=/; HttpOnly
+      - CFTOKEN=68855786; Expires=Tue, 16-Jun-2015 00:27:19 GMT; Path=/; HttpOnly
+      - SERVERID=SU-APP-2-2; path=/
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA3VUTXPaMBA9J7+CcmoPYAOlUMZxSvlKZkrLYNMeMjko9mI0
+        yBIjSyTk11e2ZVmEwQfP+O3b57er1Xr3bylpHIFnmNG7ZqftNhtAIxZjmtw1
+        N+G8NWze+7dekCIugG/825v88daQSSL8QEYRZJnn6G8dfaRbVjK9TQa8Spql
+        CBPf+/Q0mY7D8dMxlgeisjH8SPJIO2Lp87PvOSVPa83SA2EngMepU+lMOCAB
+        8VS9arWu2+m33G8td9DoDEa9/qj7tf19OCgE7QQtu1QlbvFVkWEu0u+OeoN2
+        p1donCVokQU+Av2NUsvGX0RVSahIqcOaH0hOz9jTqgMFvwpr9i9EE4kSS3xG
+        E4KzXUE2Uc0eE8Je5wDxC4r2dVs6Bfk8WLkRSMispo4joeopnZShSlqKHVCB
+        IyTUlISng2WpGozyN5dELRHiFN4ZtRI/L5Zhazhy3S+NVmMTOCsUqQOJCh3D
+        rgwQNXtUHXcxGWYOHlgKC87koa5hxV4l3xQidVSr/OEJovi9KMJohFgQMF9T
+        fMT5TTBAIA/AFca4gX5iLnaxMmOQB8whH0YDhMBTrPwqpTN8tVMtWHGsLtPJ
+        kAtwXFV4Di/ZC7bsBUDjpbopIbMqVneXUUTKc6sJuug8peianRMA2Rp+FdUJ
+        c/RmPIzjmKtp7nwEugaYYGFVwjKByITFdSdWnB0xjWpgwiQVVvW5v38Ae3IK
+        UbZfg+pbrDaGWRLl/F5hWTWWGup3Se44kGne4+syH4laac3UQtJr5kZjjg16
+        E5kJls4xkPiCeBnzHLP/PKfeijfejHPGLwRs1HOqq+X/B9TNkbalBQAA
+    http_version: 
+  recorded_at: Mon, 15 Jun 2015 00:27:19 GMT
+recorded_with: VCR 2.9.3

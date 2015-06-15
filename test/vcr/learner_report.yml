@@ -1,0 +1,63 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api.smarteru.com/apiv2/
+    body:
+      encoding: UTF-8
+      string: Package=%3C%3Fxml%20version%3D%221.0%22%20encoding%3D%22UTF-8%22%3F%3E%0A%20%20%20%20%20%20%20%20%3CSmarterU%3E%0A%20%20%20%20%20%20%20%20%3CAccountAPI%3EC3FE6BE08120A82DB9C4555A5C0E46AF%3C%2FAccountAPI%3E%0A%20%20%20%20%20%20%20%20%3CUserAPI%3E*623jec3nad4!aic5rlg*%24mrg8n4%24itd%5Evy62xut%3C%2FUserAPI%3E%0A%20%20%20%20%20%20%20%20%3CMethod%3EgetLearnerReport%3C%2FMethod%3E%0A%20%20%20%20%20%20%20%20%3CParameters%3E%3CReport%3E%3CFilters%3E%3CGroups%3E%3CGroupNames%3E%3CGroupName%3E%3C!%5BCDATA%5BPowurU%5D%5D%3E%3C%2FGroupName%3E%3C%2FGroupNames%3E%3C%2FGroups%3E%3CLearningModules%3E%3C%2FLearningModules%3E%3CUsers%3E%3CUserIdentifier%3E%3CEmployeeID%3E%3C!%5BCDATA%5B5258029611%5D%5D%3E%3C%2FEmployeeID%3E%3C%2FUserIdentifier%3E%3C%2FUsers%3E%3C%2FFilters%3E%3CColumns%3E%3CColumnName%3E%3C!%5BCDATA%5BENROLLED_DATE%5D%5D%3E%3C%2FColumnName%3E%3CColumnName%3E%3C!%5BCDATA%5BCOMPLETED_DATE%5D%5D%3E%3C%2FColumnName%3E%3CColumnName%3E%3C!%5BCDATA%5BDUE_DATE%5D%5D%3E%3C%2FColumnName%3E%3CColumnName%3E%3C!%5BCDATA%5BLAST_ACCESSED_DATE%5D%5D%3E%3C%2FColumnName%3E%3CColumnName%3E%3C!%5BCDATA%5BSTARTED_DATE%5D%5D%3E%3C%2FColumnName%3E%3C%2FColumns%3E%3CCustomFields%3E%3C%2FCustomFields%3E%3C%2FReport%3E%3C%2FParameters%3E%0A%20%20%20%20%20%20%20%20%3C%2FSmarterU%3E
+    headers:
+      Accept:
+      - "*/*; q=0.5, application/xml"
+      Accept-Encoding:
+      - gzip, deflate
+      Content-Length:
+      - '1274'
+      Content-Type:
+      - application/x-www-form-urlencoded
+      User-Agent:
+      - Ruby
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Mon, 15 Jun 2015 21:08:13 GMT
+      Content-Type:
+      - text/html;charset=UTF-8
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Vary:
+      - Accept-Encoding
+      Cache-Control:
+      - private
+      Content-Language:
+      - en-US
+      Set-Cookie:
+      - CFID=5650863; Expires=Tue, 16-Jun-2015 21:08:12 GMT; Path=/; HttpOnly
+      - CFTOKEN=78725081; Expires=Tue, 16-Jun-2015 21:08:12 GMT; Path=/; HttpOnly
+      - SERVERID=SU-APP-1-2; path=/
+      Content-Encoding:
+      - gzip
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        H4sIAAAAAAAAA9VVyW7bMBA9J1/B6tQeRHERK4WgFbhyDLgIiiJ2TkEOhMIU
+        AiTSoKimn19qiSuncOq6l1TQheS82d48jLj8UVfgu7JNafQswBAFQOnCPJT6
+        2yy43SzDNLjMzsW6ltYpe5udn3WfuFFNW7ls3RaFahoRjefxdaUfTSaulbRa
+        2Ru1NdYBa56aWRAHu/tM5Ka1jfoia5WJd3f5Yr6Z3y1l48Cq3srCgY2VpfaJ
+        gPfL1ebD/X0moink2pvugz+pzlzZ3vTX87K0Ly0/K617q8nblbamqtTDQrpJ
+        QgRhFiIWYgJwzDHilEFEaA/eR+Sm3lbKHXRAAcGcJZxQyOLBwQvIolUHgjOA
+        CUfI/xD1oXemXZnznoU/BEacUYiTIfDvqLXrGD5UvM8dcXzBYwbTJOkz2ANE
+        I9n/J7sfQ8y6AmPMcep7NBT4CrtRJnYEPE/uMCjeVXo0V97NpIv+dGQbv5qn
+        1oLc6E6EUjuQK+vKx7KQzsu4Z+dtCIXgv9WJ7x8CftAo5TGBlIzF7CnrQOtZ
+        SLxGT5TJJC6+gBQPI3CCTLzEU44TmLCTVfKG6e3bRAgnzIsFxv+mFOKZPpKu
+        V5TyrJlhz3gN9dtn3ERX1hrbjFvrbLyMprci2u22nwqnJW0NBwAA
+    http_version: 
+  recorded_at: Mon, 15 Jun 2015 21:08:13 GMT
+recorded_with: VCR 2.9.3
