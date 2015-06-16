@@ -17,10 +17,10 @@ class TestSmarteru < Test::Unit::TestCase
     @client.account_api_key = 'foo'
     @client.user_api_key = 'bar'
 
-    with_request('invalid_api_keys', 'getGroup', GROUP_PARAMS) do |response|
-      assert_false response.success?
-      assert_not_nil response.error[:error][:error_id]
-      assert_equal response.error[:error][:error_id], 'SU:10'
+    VCR.use_cassette('invalid_api_keys') do
+      assert_raise_kind_of(Smarteru::Error) do
+        @client.request('getGroup', GROUP_PARAMS)
+      end
     end
   end
 

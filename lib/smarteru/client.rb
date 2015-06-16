@@ -1,8 +1,7 @@
 module Smarteru
   class Client
     attr_accessor :account_api_key, :user_api_key
-    attr_reader :use_ssl, :verify_ssl,
-                :ssl_ca_file, :api_url
+    attr_reader :use_ssl, :verify_ssl, :ssl_ca_file, :api_url, :fail_on_error
 
     # Create an instance of an API client
     #
@@ -17,6 +16,7 @@ module Smarteru
       @verify_ssl = options[:verify_ssl]
       @ssl_ca_file = options[:ssl_ca_file]
       @api_url = (@use_ssl ? 'https' : 'http') + "://#{API_HOST}/#{API_VERSION}/"
+      @fail_on_error = options[:fail_on_error] != false
     end
 
     # Make an API request
@@ -38,9 +38,14 @@ module Smarteru
         content_type: :xml,
         verify_ssl:   verify_ssl,
         ssl_ca_file:  ssl_ca_file }
-      response = RestClient::Request.execute(opts)
 
-      Response.new(response)
+      response = RestClient::Request.execute(opts)
+      response = Response.new(response)
+
+      if !response.success? && fail_on_error
+        fail Error.new(response)
+      end
+      response
     end
 
     def users

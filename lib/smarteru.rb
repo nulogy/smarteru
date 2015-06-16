@@ -2,6 +2,7 @@ require 'rest-client'
 require 'libxml'
 require 'xmlhasher'
 
+require 'smarteru/error'
 require 'smarteru/client'
 require 'smarteru/response'
 require 'smarteru/resources/base'
