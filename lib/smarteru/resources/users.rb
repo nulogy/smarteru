@@ -4,7 +4,8 @@ module Smarteru
       def get(id_or_email)
         params = { user: normalize_id_param(id_or_email) }
 
-        client.request('getUser', params)
+        response = client.request('getUser', params)
+        response.success? ? response.result[:user] : response
       rescue Error => e
         return nil if e.code == 'GU:03'
         fail e
