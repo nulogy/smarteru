@@ -1,5 +1,4 @@
 require 'rest-client'
-require 'libxml'
 require 'xmlhasher'
 
 require 'smarteru/error'

@@ -1,7 +1,6 @@
 require 'test_helper'
 
 class TestSmarteru < Test::Unit::TestCase
-
   def setup
     @client = Smarteru::Client.new(
       account_api_key: 'C3FE6BE08120A82DB9C4555A5C0E46AF',
@@ -32,10 +31,12 @@ class TestSmarteru < Test::Unit::TestCase
   end
 
   def test_get_user
+    email = 'vduplessie@gmail.com'
+
     VCR.use_cassette('get_user') do
-      response = @client.users.get('vduplessie@gmail.com')
-      assert_true response.success?
-      assert_not_nil response.result[:user]
+      response = @client.users.get(email)
+      assert_not_nil response[:email] == email
+      assert_not_nil response[:status] == 'Active'
     end
   end
 
