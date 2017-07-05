@@ -1,5 +1,5 @@
 require 'rest-client'
-require 'xmlhasher'
+require 'nori'
 
 require 'smarteru/error'
 require 'smarteru/client'

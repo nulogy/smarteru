@@ -8,10 +8,10 @@ module Smarteru
     # * +resp+ - RestClient response from the API
     def initialize(res, opts = {})
       @data = res
-      opts[:parser] ||= XmlHasher::Parser.new(
-        snakecase:         true,
-        ignore_namespaces: true,
-        string_keys:       false)
+      opts[:parser] ||= Nori.new(
+        parser:          :rexml,
+        convert_tags_to: lambda { |tag| tag.snakecase.to_sym }
+      )
       @opts = opts
     end
 
