@@ -3,13 +3,13 @@ $LOAD_PATH.push File.expand_path('../lib', __FILE__)
 require 'smarteru/version'
 
 Gem::Specification.new do |s|
-  s.authors     = [ 'Sasha Shamne', 'EyecueLab' ]
-  s.name        = 'smarteru'
+  s.authors     = [ 'Nulogy Engineering' ]
+  s.name        = 'smarteru_nulogy'
   s.version     = Smarteru::VERSION
-  s.email       = [ 'alexander.shamne@gmail.com' ]
+  s.email       = [ 'engineering@nulogy.com' ]
   s.description = 'Ruby wrapper for Smarteru API'
   s.summary     = 'Allows access to a Smarteru API operations http://help.smarteru.com/'
-  s.homepage    = 'http://github.com/eyecuelab/smarteru'
+  s.homepage    = 'http://github.com/nulogy/smarteru_nulogy'
   s.license     = 'MIT'
 
   s.files = Dir['{lib}/**/*'] + ['MIT-LICENSE', 'Rakefile', 'README.md']
